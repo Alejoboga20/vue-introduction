@@ -10,6 +10,8 @@
 		<div id="app">
 			<h1>{{ message }}</h1>
 			<blockquote>{{ quote }} - {{ author }}</blockquote>
+
+			<button v-on:click="changeQuote">change quote</button>
 		</div>
 		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 		<script src="./app.js"></script>
