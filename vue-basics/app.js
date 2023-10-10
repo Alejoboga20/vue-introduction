@@ -1,7 +1,3 @@
-const app = Vue.createApp({
-	template: `
-    <h1>Hello World</h1>
-  `,
-});
+const app = Vue.createApp({});
 
 app.mount('#app');
