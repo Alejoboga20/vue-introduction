@@ -5,5 +5,7 @@ const app = new Vue({
 		product: 'Socks',
 		image: './vue-socks.jpeg',
 		altText: 'A pair of socks',
+		onSale: true,
+		inventory: 100,
 	},
 });
