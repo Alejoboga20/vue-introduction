@@ -9,6 +9,9 @@
 		<!-- App is injected inside the div with id app -->
 		<div id="app">
 			<h1>Batman Quotes</h1>
+
+			<input type="text" v-model="newQuote" v-on:keypress="addQuote" />
+
 			<hr />
 
 			<ul>
