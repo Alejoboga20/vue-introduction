@@ -43,20 +43,8 @@ Vue.component('product', {
           Add to cart
         </button>
 
-        <product-review @review-submitted="addReview"></product-review>
+        <product-tabs :reviews="reviews"></product-tabs>
 
-        <div class="reviews">
-          <h2><b>Reviews</b></h2>
-          <p v-if="!reviews.length">There are no reviews yet.</p>
-
-          <ul>
-            <li v-for="review in reviews">
-              <p>{{review.name}}</p>
-              <p>Rating: {{review.rating}}</p>
-              <p>{{review.review}}</p>
-            </li>
-          </ul>
-        </div>
       </div>
 		</div>
   `,
@@ -94,9 +82,6 @@ Vue.component('product', {
 		},
 		updateProduct: function (index) {
 			this.selectedVariant = index;
-		},
-		addReview(productReview) {
-			this.reviews.push(productReview);
 		},
 	},
 	/* Computed properties act like calculator */
@@ -179,6 +164,55 @@ Vue.component('product-review', {
 				if (!this.review) this.errors.push('Review required.');
 				if (!this.rating) this.errors.push('Rating required.');
 			}
+		},
+	},
+});
+
+Vue.component('product-tabs', {
+	props: {
+		reviews: {
+			type: Array,
+			required: true,
+		},
+	},
+	template: `
+    <div>
+      <div>
+          <span 
+          class="tab" 
+          :class="{activeTab: selectedTab === tab}" 
+          v-for="(tab, index) in tabs" 
+          :key="index" 
+          @click="selectedTab = tab">
+            {{tab}}
+          </span> 
+        </div>
+
+        <div class="reviews" v-show="selectedTab === 'Reviews'">
+        <h2><b>Reviews</b></h2>
+        <p v-if="!reviews.length">There are no reviews yet.</p>
+
+        <ul>
+          <li v-for="review in reviews">
+            <p>{{review.name}}</p>
+            <p>Rating: {{review.rating}}</p>
+            <p>{{review.review}}</p>
+          </li>
+        </ul>
+      </div>
+
+      <product-review v-show="selectedTab === 'Make a Review'" @review-submitted="addReview"></product-review>
+    </div>
+  `,
+	data() {
+		return {
+			tabs: ['Reviews', 'Make a Review'],
+			selectedTab: 'Reviews',
+		};
+	},
+	methods: {
+		addReview(productReview) {
+			this.reviews.push(productReview);
 		},
 	},
 });
