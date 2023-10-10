@@ -3,6 +3,7 @@ const app = new Vue({
 	el: '#app',
 	data: {
 		product: 'Socks',
-		productDescription: 'White and soft',
+		image: './vue-socks.jpeg',
+		altText: 'A pair of socks',
 	},
 });
