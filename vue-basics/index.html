@@ -10,7 +10,7 @@
 		<div id="app">
 			<h1>Batman Quotes</h1>
 
-			<input type="text" v-model="newQuote" v-on:keypress="addQuote" />
+			<input type="text" v-model="newQuote" v-on:keypress.enter="addQuote" />
 
 			<hr />
 
