@@ -7,5 +7,11 @@ const app = new Vue({
 		altText: 'A pair of socks',
 		onSale: true,
 		inventory: 100,
+		details: ['80% cotton', '20% polyester', 'Gender-neutral'],
+		variants: [
+			{ variantId: 1, variantColor: 'green', variantImage: './vue-socks.jpeg' },
+			{ variantId: 2, variantColor: 'blue', variantImage: './vue-blue-socks.jpeg' },
+		],
+		sizes: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL'],
 	},
 });
