@@ -17,7 +17,7 @@
 			<ul>
 				<li v-for="({quote, author}, index) in quotes">
 					<span>{{index + 1}}. {{quote}}</span>
-					<blockquote>{{author.split(',')[0]}}</blockquote>
+					<blockquote v-if="author">{{author.split(',')[0]}}</blockquote>
 				</li>
 			</ul>
 		</div>
