@@ -8,14 +8,11 @@
 	<body>
 		<!-- App is injected inside the div with id app -->
 		<div id="app">
-			<h1>Batman Quotes</h1>
-			<hr />
+			<h1>{{ message }}</h1>
+			<blockquote>{{ quote }} - {{ author }}</blockquote>
 
-			<ul>
-				<li v-for="quote in quotes">{{quote.quote}} - {{quote.author}}</li>
-			</ul>
+			<button v-on:click="changeQuote">change quote</button>
 		</div>
-
 		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 		<script src="./app.js"></script>
 	</body>
